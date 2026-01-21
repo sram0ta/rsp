@@ -7,6 +7,7 @@ window.addEventListener('DOMContentLoaded', function() {
     refreshFsLightbox();
     ScrollTrigger.refresh();
     scrollHeader();
+    galleryNavigation();
 });
 
 const remToPx = rem => rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
@@ -117,4 +118,33 @@ function scrollHeader() {
     toggleHeader();
 
     window.addEventListener('scroll', toggleHeader);
+}
+
+
+function galleryNavigation() {
+    const buttons = document.querySelectorAll('.gallery__navigation__button');
+    const groups  = document.querySelectorAll('.gallery__group');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const id = button.dataset.id;
+
+            // кнопки
+            buttons.forEach(b => b.classList.remove('active'));
+            button.classList.add('active');
+
+            // галереи
+            groups.forEach(group => {
+                group.classList.toggle(
+                    'active',
+                    group.dataset.folder === id
+                );
+            });
+
+            // обновить fslightbox
+            if (window.refreshFsLightbox) {
+                refreshFsLightbox();
+            }
+        });
+    });
 }
