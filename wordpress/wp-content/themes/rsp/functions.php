@@ -87,6 +87,46 @@ add_action( 'widgets_init', 'rsp_widgets_init' );
 function rsp_scripts() {
 	wp_enqueue_style( 'rsp-style', get_stylesheet_uri(), array(), _S_VERSION );
 
+    wp_enqueue_style( 'main-css', get_stylesheet_directory_uri() . '/src/index.css'  );
+    wp_enqueue_style( 'swiper-css', get_stylesheet_directory_uri() . '/src/css/vendor/swiper-bundle.min.css'  );
+
+    wp_enqueue_script( 'gsap-js', get_stylesheet_directory_uri() . '/src/js/vendor/gsap.min.js'  );
+    wp_enqueue_script( 'gsap-scroll-trigger-js', get_stylesheet_directory_uri() . '/src/js/vendor/gsap-scroll-trigger.min.js'  );
+    wp_enqueue_script( 'swiper-js', get_stylesheet_directory_uri() . '/src/js/vendor/swiper-bundle.min.js'  );
+    wp_enqueue_script( 'fs-lightbox-js', get_stylesheet_directory_uri() . '/src/js/vendor/fslightbox.js'  );
+
+    wp_enqueue_script( 'index-js', get_stylesheet_directory_uri() . '/src/index.js');
 }
 add_action( 'wp_enqueue_scripts', 'rsp_scripts' );
 
+add_action("admin_menu", "remove_menus");
+function remove_menus() {
+    remove_menu_page("edit.php");                 # Записи
+    remove_menu_page("edit-comments.php");        # Комментарии
+}
+
+add_filter('wpcf7_autop_or_not', '__return_false');
+
+require_once get_template_directory() . '/inc/ajax/load-more-news.php';
+
+add_action('wp_enqueue_scripts', function () {
+
+    $news_query = new WP_Query([
+        'post_type'      => 'news',
+        'posts_per_page' => 6,
+        'paged'          => 1,
+    ]);
+
+    wp_enqueue_script(
+        'news-load-more',
+        get_template_directory_uri() . '/src/js/ajax/load-more-news.js',
+        [],
+        '1.0.0',
+        true
+    );
+
+    wp_localize_script('news-load-more', 'NewsLoadMore', [
+        'ajaxUrl'  => admin_url('admin-ajax.php'),
+        'maxPages' => (int) $news_query->max_num_pages,
+    ]);
+});

@@ -14,11 +14,35 @@
 <html <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="profile" href="https://gmpg.org/xfn/11">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="profile" href="https://gmpg.org/xfn/11">
 
 	<?php wp_head(); ?>
 </head>
 
 <body class="body">
 <?php wp_body_open(); ?>
+<header class="header grid-12 container">
+    <div class="header__logo">
+        <?php the_custom_logo(); ?>
+    </div>
+    <nav class="header__navigation">
+        <a href="#" class="header__navigation__link">Каталог</a>
+        <a href="#" class="header__navigation__link">О нас</a>
+        <a href="#" class="header__navigation__link">Блог</a>
+        <a href="#" class="header__navigation__link">Галерея</a>
+        <a href="#" class="header__navigation__link">Контакты</a>
+    </nav>
+    <div class="header__information">
+        <div class="header__information-wrapper">
+            <a href="tel:" class="header__information__link">+7 499 322 95 96</a>
+            <a href="mailto:" class="header__information__link">info@rsp-34.com</a>
+        </div>
+        <a href="#form" class="header__information__button">
+            <span>Оформить заказ</span>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.47965 0H12V10.5204H8.76297V5.52602L2.28891 12.0001L0 9.71117L6.47406 3.23703H1.47965V0Z" fill="white"/>
+            </svg>
+        </a>
+    </div>
+</header>

@@ -10,8 +10,49 @@
  */
 
 ?>
-
+<footer class="footer container">
+    <div class="footer__inner grid-12">
+        <div class="footer__content">
+            <div class="footer__content__information">
+                <div class="footer__content__information__logo">
+                    <?php the_custom_logo(); ?>
+                </div>
+                <div class="footer__content__information__title">Ведущий производитель уплотнений в России</div>
+            </div>
+            <div class="footer__content__contacts">
+                <div class="footer__content__contacts__inner">
+                    <div class="footer__content__contacts__social">
+                        <a href="tel:">+7 499 322 95 96</a>
+                        <a href="mailto:">info@rsp-34.com</a>
+                    </div>
+                    <div class="footer__content__contacts__address">Волгоградская область, город Волжский, ул. Пушкина 105г/1</div>
+                </div>
+                <div class="footer__content__contacts__navigation">
+                    <a href="#" class="footer__content__contacts__navigation__link">О компании</a>
+                    <a href="#" class="footer__content__contacts__navigation__link">Галерея</a>
+                    <a href="#" class="footer__content__contacts__navigation__link">Блог</a>
+                    <a href="#" class="footer__content__contacts__navigation__link">Контакты</a>
+                </div>
+            </div>
+        </div>
+        <div class="form">
+            <div class="anchor" id="form"></div>
+            <div class="form__title">Оставьте ваши контактные данные,<br>мы свяжемся с вами в ближайшее время</div>
+            <?= do_shortcode('[contact-form-7 id="dde2771"]') ?>
+        </div>
+    </div>
+</footer>
+<div class="after-footer container grid-12">
+    <div class="after-footer__information">
+        © ООО «ЭРСИПИ» 2024<br>
+        ИНН: 34 35 309 985
+    </div>
+    <a href="#" class="after-footer__develop" target="_blank">Разработка Effect Web</a>
+    <div class="after-footer__links">
+        <a href="#">Политика конфиденциальности</a>
+        <a href="#">Согласие на обработку персональных данных</a>
+    </div>
+</div>
 <?php wp_footer(); ?>
-
 </body>
 </html>
