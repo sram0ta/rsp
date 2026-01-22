@@ -29,14 +29,14 @@
     <nav class="header__navigation">
         <a href="#" class="header__navigation__link">Каталог</a>
         <a href="#" class="header__navigation__link">О нас</a>
-        <a href="#" class="header__navigation__link">Блог</a>
-        <a href="#" class="header__navigation__link">Галерея</a>
-        <a href="#" class="header__navigation__link">Контакты</a>
+        <a href="<?= get_the_permalink('10')  ?>" class="header__navigation__link">Блог</a>
+        <a href="<?= get_the_permalink('69')  ?>" class="header__navigation__link">Галерея</a>
+        <a href="<?= get_the_permalink('77')  ?>" class="header__navigation__link">Контакты</a>
     </nav>
     <div class="header__information">
         <div class="header__information-wrapper">
-            <a href="tel:" class="header__information__link">+7 499 322 95 96</a>
-            <a href="mailto:" class="header__information__link">info@rsp-34.com</a>
+            <a href="tel:<?= $phone_tel = preg_replace('/[^0-9+]/', '', get_field('phone', 77)); ?>" class="header__information__link"><?= get_field('phone',77 ); ?></a>
+            <a href="mailto:<?= get_field('email',77 ); ?>" class="header__information__link"><?= get_field('email',77 ); ?></a>
         </div>
         <a href="#form" class="header__information__button">
             <span>Оформить заказ</span>

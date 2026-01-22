@@ -22,10 +22,10 @@
             <div class="footer__content__contacts">
                 <div class="footer__content__contacts__inner">
                     <div class="footer__content__contacts__social">
-                        <a href="tel:">+7 499 322 95 96</a>
-                        <a href="mailto:">info@rsp-34.com</a>
+                        <a href="tel:<?= $phone_tel = preg_replace('/[^0-9+]/', '', get_field('phone', 77)); ?>"><?= get_field('phone',77 ); ?></a>
+                        <a href="mailto:<?= get_field('email',77 ); ?>"><?= get_field('email',77 ); ?></a>
                     </div>
-                    <div class="footer__content__contacts__address">Волгоградская область, город Волжский, ул. Пушкина 105г/1</div>
+                    <div class="footer__content__contacts__address"><?= get_field('address', 77); ?></div>
                 </div>
                 <div class="footer__content__contacts__navigation">
                     <a href="#" class="footer__content__contacts__navigation__link">О компании</a>
