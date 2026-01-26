@@ -113,6 +113,98 @@ body{
   }
 }
 
+.page-error{
+  padding-top: 9.5rem;
+  padding-bottom: 5.5rem;
+
+  @include mobile{
+    padding-top: 7rem;
+    padding-bottom: 5rem;
+  }
+
+  .container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .error{
+
+    &__inner{
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem 0;
+      max-width: 28rem;
+    }
+
+    &__title{
+      font-family: Open Sans;
+      font-weight: 400;
+      font-size: 6rem;
+      line-height: 130%;
+      letter-spacing: -.02em;
+      color: $c-b;
+    }
+
+    &__wrapper{
+      display: flex;
+      flex-direction: column;
+      gap: .8rem 0;
+    }
+
+    &__sub-title{
+      font-family: Open Sans;
+      font-weight: 400;
+      font-size: .8rem;
+      line-height: 100%;
+      letter-spacing: -.01em;
+      color: $c-b;
+    }
+
+    &__description{
+      font-family: Open Sans;
+      font-weight: 400;
+      font-size: .7rem;
+      line-height: 100%;
+      letter-spacing: -.01em;
+      color: $c-b;
+    }
+
+    &__link{
+      width: 100%;
+      text-align: center;
+      padding: .85rem 0;
+      background-color: #2E67F8;
+      border-radius: .4rem;
+      font-family: Open Sans;
+      font-weight: 400;
+      font-size: .8rem;
+      line-height: 100%;
+      letter-spacing: -.01em;
+      color: $c-w;
+      transition: .5s;
+
+      &:hover{
+        opacity: .5;
+      }
+    }
+
+    &__icon{
+      padding-right: 8.8rem;
+      font-family: Open Sans;
+      font-weight: 400;
+      font-size: 17.4rem;
+      line-height: 115%;
+      letter-spacing: -.01em;
+      color: #2E67F80F;
+
+      @include mobile{
+        display: none;
+      }
+    }
+  }
+}
+
 @import "inc/_header";
 @import "pages/_main";
 @import "pages/_news";
